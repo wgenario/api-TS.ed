@@ -1,6 +1,15 @@
 {
   "version": 2,
-  "rewrites": [{
-    "source": "/src/controllers/rest/(.*)", "destination": "/src/index.ts"
-  }]
+  "builds": [
+    {
+      "src": "index.js",
+      "use": "@now/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "index.js"
+    }
+  ]
 }
