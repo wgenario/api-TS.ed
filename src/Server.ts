@@ -3,20 +3,31 @@ import {Configuration, Inject} from "@tsed/di";
 import {PlatformApplication} from "@tsed/common";
 import "@tsed/platform-express"; // /!\ keep this import
 import "@tsed/ajv";
+import "@tsed/swagger";
 import {config} from "./config/index";
 import * as rest from "./controllers/rest/index";
+import * as pages from "./controllers/pages/index";
 
 @Configuration({
   ...config,
   acceptMimes: ["application/json"],
-  httpPort: process.env.PORT || 5000,
+  httpPort: process.env.PORT || 8083,
   httpsPort: false, // CHANGE
   componentsScan: false,
   mount: {
     "/rest": [
       ...Object.values(rest)
+    ],
+    "/": [
+      ...Object.values(pages)
     ]
   },
+  swagger: [
+    {
+      path: "/doc",
+      specVersion: "3.0.1"
+    }
+  ],
   middlewares: [
     "cors",
     "cookie-parser",
