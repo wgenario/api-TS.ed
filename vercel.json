@@ -17,9 +17,5 @@
   ],
   "env": {
     "NODE_ENV": "production"
-  },
-  "dependencies": {
-    "@vercel/node": "latest",
-    "typescript": "latest"
   }
 }
