@@ -3,9 +3,12 @@
   "builds": [
     {
       "src": "src/**/*.ts",
-      "use": "@vercel/node-server",
+      "use": "@vercel/build-utils",
       "config": {
-        "distDir": "public"
+        "entrypoint": "src/index.ts",
+        "env": {
+          "NODE_ENV": "production"
+        }
       }
     }
   ],
@@ -14,8 +17,5 @@
       "src": "/(.*)",
       "dest": "public/index.js"
     }
-  ],
-  "env": {
-    "NODE_ENV": "production"
-  }
+  ]
 }
