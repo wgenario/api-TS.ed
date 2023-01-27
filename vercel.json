@@ -1,17 +1,6 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "src/**/*.ts",
-      "use": "@vercel/build-utils",
-      "config": {
-        "entrypoint": "src/index.ts",
-        "env": {
-          "NODE_ENV": "production"
-        }
-      }
-    }
-  ],
+  "builds": [],
   "routes": [
     {
       "src": "/(.*)",
