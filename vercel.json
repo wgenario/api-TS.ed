@@ -1,15 +1,6 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "Server.ts",
-      "use": "@now/node"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "Server.ts"
-    }
-  ]
+  "rewrites": [{
+    "source": "/src/(.*)", "destination": "/src/Server.ts"
+  }]
 }
