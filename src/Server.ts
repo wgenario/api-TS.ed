@@ -11,7 +11,7 @@ import * as pages from "./controllers/pages/index";
 @Configuration({
   ...config,
   acceptMimes: ["application/json"],
-  httpPort: process.env.PORT || 5000,
+  httpPort: process.env.PORT || 8083,
   httpsPort: false, // CHANGE
   componentsScan: false,
   mount: {

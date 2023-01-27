@@ -6,8 +6,5 @@
       "src": "/.*",
       "dest": "public/index.js"
     }
-  ],
-  "env": {
-    "NODE_ENV": "production"
-  }
+  ]
 }
