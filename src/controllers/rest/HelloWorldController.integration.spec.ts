@@ -10,7 +10,7 @@ describe("HelloWorldController", () => {
   beforeEach(
     PlatformTest.bootstrap(Server, {
       mount: {
-        "/": HelloWorldController
+        "/": [HelloWorldController]
       }
     })
   );
