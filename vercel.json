@@ -15,6 +15,7 @@
     }
   ],
   "env": {
-    "NODE_ENV": "production"
+    "NODE_ENV": "production",
+    "TEST_VARIABLE": "test"
   }
 }
