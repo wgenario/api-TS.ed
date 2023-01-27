@@ -1,10 +1,8 @@
 {
   "version": 2,
-  "builds": [],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "public/index.js"
-    }
-  ]
+  "builds": [
+    { "src": "next.config.js", "use": "@vercel/next" },
+    { "src": "dist/server.js", "use": "@vercel/node" }
+  ],
+  "routes": [{ "src": "/(.*)", "dest": "dist/server.js" }]
 }
