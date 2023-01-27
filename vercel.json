@@ -1,6 +1,6 @@
 {
   "version": 2,
   "rewrites": [{
-    "source": "/src/rest/(.*)", "destination": "/src/index.ts"
+    "source": "/src/controllers/rest/(.*)", "destination": "/src/index.ts"
   }]
 }
