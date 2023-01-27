@@ -1,8 +1,12 @@
 {
+  "version": 2,
   "builds": [
     {
-      "src": "public/index.js",
-      "use": "@vercel/node"
+      "src": "src/**/*.ts",
+      "use": "@vercel/node-server",
+      "config": {
+        "distDir": "public"
+      }
     }
   ],
   "routes": [
@@ -10,5 +14,8 @@
       "src": "/(.*)",
       "dest": "public/index.js"
     }
-  ]
+  ],
+  "env": {
+    "NODE_ENV": "production"
+  }
 }
