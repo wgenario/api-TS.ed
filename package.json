@@ -5,8 +5,8 @@
   "scripts": {
     "build": "npm run barrels && tsc --project tsconfig.compile.json",
     "barrels": "barrelsby --config .barrelsby.json",
-    "start:dev": "npm run barrels && tsnd --inspect --exit-child --cls --ignore-watch node_modules --respawn --transpile-only -r tsconfig-paths/register src/index.ts node public/Server.js",
-    "start": "npm run build && cross-env NODE_ENV=production node public/Server.js",
+    "start:dev": "npm run barrels && tsnd --inspect --exit-child --cls --ignore-watch node_modules --respawn --transpile-only -r tsconfig-paths/register src/index.ts",
+    "start": "npm run build && cross-env NODE_ENV=production node public/index.js",
     "test": "npm run test:unit && npm run test:coverage",
     "test:unit": "cross-env NODE_ENV=test mocha",
     "test:coverage": "cross-env NODE_ENV=test nyc mocha",
