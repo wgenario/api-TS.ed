@@ -3,7 +3,7 @@ import {
   ServerSettings,
   GlobalAcceptMimesMiddleware,
 } from "@tsed/common";
-import Path from "path";
+import Path = require("path");
 
 @ServerSettings({
   rootDir: Path.resolve(__dirname), // optional. By default it's equal to process.cwd()
@@ -14,7 +14,7 @@ export class Server extends ServerLoader {
    * This method let you configure the middleware required by your application to works.
    * @returns {Server}
    */
-  public $onMountingMiddlewares(): null | Promise<any> {
+  public $onMountingMiddlewares(): void | Promise<any> {
     const cookieParser = require("cookie-parser"),
       bodyParser = require("body-parser"),
       compress = require("compression"),
