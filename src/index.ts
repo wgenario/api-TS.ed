@@ -5,19 +5,16 @@ import { Server } from "./Server";
 
 let platform: PlatformBuilder<Application> | undefined;
 
-async function bootstrap() {
-  try {
-    platform = await PlatformExpress.bootstrap(Server);
-    await platform.listen();
-
-    process.on("SIGINT", () => {
-      platform?.stop();
+PlatformExpress.bootstrap(Server).then((platform) => {
+  platform
+    .listen()
+    .then(() => {
+      $log.info("Server initialized");
+    })
+    .catch((err) => {
+      $log.error(err);
+      process.exit(1);
     });
-  } catch (error) {
-    $log.error({ event: "SERVER_BOOTSTRAP_ERROR", message: error.message, stack: error.stack });
-  }
-}
-
-bootstrap();
+});
 
 module.exports = platform;
