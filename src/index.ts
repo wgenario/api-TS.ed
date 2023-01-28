@@ -1,7 +1,20 @@
+import { $log } from "@tsed/common";
 import { PlatformExpress } from "@tsed/platform-express";
 import { Server } from "./Server";
 
-const platform = PlatformExpress.create(Server);
-platform.listen();
+async function bootstrap() {
+  try {
+    const platform = await PlatformExpress.bootstrap(Server);
+    await platform.listen();
 
-module.exports = platform.app;
+    process.on("SIGINT", () => {
+      platform?.stop();
+    });
+  } catch (error) {
+    $log.error({ event: "SERVER_BOOTSTRAP_ERROR", message: error.message, stack: error.stack });
+  }
+}
+
+bootstrap();
+
+module.exports = PlatformExpress.create(Server);
