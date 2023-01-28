@@ -1,6 +1,14 @@
 {
   "version": 2,
-  "builds": [],
+  "builds": [
+    {
+      "src": "src/index.ts",
+      "use": "@now/node",
+      "config": {
+        "distDir": "public"
+      }
+    }
+  ],
   "routes": [
     {
       "src": "/.*",
